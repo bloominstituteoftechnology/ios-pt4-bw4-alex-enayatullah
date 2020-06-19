@@ -50,6 +50,7 @@ struct Home: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+        .background(Color.white)
     }
 }
 

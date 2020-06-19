@@ -17,11 +17,12 @@ struct ContentView: View {
             
             VStack {
                 if self.selected == 0 {
-                    
+                    Library()
                 } else if self.selected == 1 {
                     Home()
                 } else {
-                    
+                    Settings()
+                        .padding(.top, 50)
                 }
             }
             .background(Color(#colorLiteral(red: 0.9426581264, green: 0.9426581264, blue: 0.9426581264, alpha: 1)))

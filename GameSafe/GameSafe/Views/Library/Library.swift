@@ -41,6 +41,7 @@ struct Library: View {
             .padding(.top, UIScreen.main.bounds.height * 0.1)
         }
         .edgesIgnoringSafeArea(.all)
+        .background(Color.white)
     }
 }
 
