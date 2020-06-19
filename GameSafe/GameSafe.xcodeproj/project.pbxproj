@@ -18,6 +18,7 @@
 		A2684989249C61AD00F3820F /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2684988249C61AD00F3820F /* GameCell.swift */; };
 		A268498C249C649E00F3820F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A268498B249C649E00F3820F /* Home.swift */; };
 		A268498E249C6A6200F3820F /* QuickStartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A268498D249C6A6200F3820F /* QuickStartButton.swift */; };
+		A2684992249C6B9100F3820F /* Library.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2684991249C6B9100F3820F /* Library.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A2684988249C61AD00F3820F /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
 		A268498B249C649E00F3820F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A268498D249C6A6200F3820F /* QuickStartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickStartButton.swift; sourceTree = "<group>"; };
+		A2684991249C6B9100F3820F /* Library.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Library.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +92,8 @@
 			isa = PBXGroup;
 			children = (
 				A2684986249C617B00F3820F /* Home */,
+				A268498F249C6B5C00F3820F /* Library */,
 				A268498A249C63B300F3820F /* SupportingViews */,
-				A268498D249C6A6200F3820F /* QuickStartButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,6 +122,23 @@
 				A2684988249C61AD00F3820F /* GameCell.swift */,
 			);
 			path = SupportingViews;
+			sourceTree = "<group>";
+		};
+		A268498F249C6B5C00F3820F /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				A2684990249C6B6400F3820F /* LibrarySubViews */,
+				A2684991249C6B9100F3820F /* Library.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		A2684990249C6B6400F3820F /* LibrarySubViews */ = {
+			isa = PBXGroup;
+			children = (
+				A268498D249C6A6200F3820F /* QuickStartButton.swift */,
+			);
+			path = LibrarySubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +220,7 @@
 				A2298C0A249AF62300BDD2B7 /* ContentView.swift in Sources */,
 				A2684989249C61AD00F3820F /* GameCell.swift in Sources */,
 				A268498C249C649E00F3820F /* Home.swift in Sources */,
+				A2684992249C6B9100F3820F /* Library.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
