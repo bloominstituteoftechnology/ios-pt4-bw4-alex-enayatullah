@@ -86,7 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				A2684986249C617B00F3820F /* Home */,
-				A2684988249C61AD00F3820F /* GameCell.swift */,
+				A268498A249C63B300F3820F /* SupportingViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -106,6 +106,14 @@
 				A2684983249C5FC700F3820F /* CoverPhoto.swift */,
 			);
 			path = HomeSubViews;
+			sourceTree = "<group>";
+		};
+		A268498A249C63B300F3820F /* SupportingViews */ = {
+			isa = PBXGroup;
+			children = (
+				A2684988249C61AD00F3820F /* GameCell.swift */,
+			);
+			path = SupportingViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
