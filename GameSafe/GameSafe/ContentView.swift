@@ -19,7 +19,7 @@ struct ContentView: View {
                 if self.selected == 0 {
                     
                 } else if self.selected == 1 {
-                    
+                    Home()
                 } else {
                     
                 }
