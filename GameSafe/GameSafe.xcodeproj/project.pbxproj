@@ -16,6 +16,7 @@
 		A2684982249C5D6100F3820F /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2684981249C5D6100F3820F /* CircleImage.swift */; };
 		A2684984249C5FC700F3820F /* CoverPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2684983249C5FC700F3820F /* CoverPhoto.swift */; };
 		A2684989249C61AD00F3820F /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2684988249C61AD00F3820F /* GameCell.swift */; };
+		A268498C249C649E00F3820F /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A268498B249C649E00F3820F /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		A2684981249C5D6100F3820F /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 		A2684983249C5FC700F3820F /* CoverPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverPhoto.swift; sourceTree = "<group>"; };
 		A2684988249C61AD00F3820F /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		A268498B249C649E00F3820F /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				A2684987249C618300F3820F /* HomeSubViews */,
+				A268498B249C649E00F3820F /* Home.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				A2298C08249AF62300BDD2B7 /* SceneDelegate.swift in Sources */,
 				A2298C0A249AF62300BDD2B7 /* ContentView.swift in Sources */,
 				A2684989249C61AD00F3820F /* GameCell.swift in Sources */,
+				A268498C249C649E00F3820F /* Home.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
