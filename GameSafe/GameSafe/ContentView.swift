@@ -26,7 +26,7 @@ struct ContentView: View {
                         .padding(.top, 50)
                 }
             }
-            .background(Color(#colorLiteral(red: 0.9426581264, green: 0.9426581264, blue: 0.9426581264, alpha: 1)))
+//            .background(Color.white)
             .edgesIgnoringSafeArea(.all)
             
             FloatingTabBar(selected: self.$selected)
