@@ -1,5 +1,5 @@
 //
-//  AssignMainContactView.swift
+//  AssignBackupContactsView.swift
 //  GameSafe
 //
 //  Created by Alex Shillingford on 6/21/20.
@@ -8,14 +8,13 @@
 
 import SwiftUI
 
-struct AssignMainContactView: View {
+struct AssignBackupContactsView: View {
     @Binding var contacts: [Contact]
     @State private var contactListPresented = false
-    @State private var isMainContact = true
-    @State var favoriteContact: Contact?
+    @State private var isMainContact = false
     
     var body: some View {
-        VStack(alignment: .center) {
+        VStack {
             HStack {
                 Text("Main Contact")
                     .font(.largeTitle).bold()
@@ -23,47 +22,36 @@ struct AssignMainContactView: View {
             }
             .padding()
             
-            Text(self.favoriteContact?.name ?? "No Main Contact Assigned") // Contact given name
-                .font(.headline).bold()
-                .padding()
-            
-            Text(self.favoriteContact?.phoneNumber ?? "No phone number found") // Contact phone number
-                .padding(.bottom, UIScreen.main.bounds.height / 4)
+            List {
+                ForEach(self.contacts, id: \.self) { (contact) in
+                    BackupContactRow(contact: contact)
+                }
+            }
+            .frame(height: 300)
             
             Spacer()
             
             Button(action: {
                 self.contactListPresented.toggle()
             }) {
-                Text("Assign Main Contact")
+                Text("Assign Backup Contacts")
                     .font(.system(size: 30, weight: .semibold, design: .default))
                     .foregroundColor(.white)
                     .frame(width: UIScreen.main.bounds.width / 1.1, height: 50)
                     .background(Color(#colorLiteral(red: 0, green: 0.9803921569, blue: 0.5960784314, alpha: 1)))
                     .clipShape(Capsule())
             }
+            
+            Spacer()
         }
-        .sheet(isPresented: self.$contactListPresented, onDismiss: {
-            self.favoriteContactAssigner()
-        }, content: {
+        .sheet(isPresented: self.$contactListPresented) {
             EmbeddedContactPicker(contacts: self.$contacts, isMainContact: self.$isMainContact, isPresented: self.$contactListPresented)
-        })
-        .onAppear {
-            self.favoriteContactAssigner()
-        }
-    }
-    
-    func favoriteContactAssigner() {
-        for contact in contacts {
-            if contact.isMainContact {
-                self.favoriteContact = contact
-            }
         }
     }
 }
 
-struct AssignMainContactView_Previews: PreviewProvider {
+struct AssignBackupContactsView_Previews: PreviewProvider {
     static var previews: some View {
-        AssignMainContactView(contacts: .constant([]))
+        AssignBackupContactsView(contacts: .constant([]))
     }
 }

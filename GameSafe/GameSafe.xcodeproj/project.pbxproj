@@ -25,6 +25,8 @@
 		A2BBDDD724A04F7700A68F0A /* EmbeddedContactPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBDDD624A04F7700A68F0A /* EmbeddedContactPickerViewController.swift */; };
 		A2BBDDD924A04FB000A68F0A /* EmbeddedContactPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBDDD824A04FB000A68F0A /* EmbeddedContactPicker.swift */; };
 		A2BBDDDC24A055B400A68F0A /* AssignMainContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBDDDB24A055B400A68F0A /* AssignMainContactView.swift */; };
+		A2BBDDDE24A06FFB00A68F0A /* AssignBackupContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBDDDD24A06FFB00A68F0A /* AssignBackupContactsView.swift */; };
+		A2BBDDE024A0751A00A68F0A /* BackupContactRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBDDDF24A0751A00A68F0A /* BackupContactRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		A2BBDDD624A04F7700A68F0A /* EmbeddedContactPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedContactPickerViewController.swift; sourceTree = "<group>"; };
 		A2BBDDD824A04FB000A68F0A /* EmbeddedContactPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbeddedContactPicker.swift; sourceTree = "<group>"; };
 		A2BBDDDB24A055B400A68F0A /* AssignMainContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignMainContactView.swift; sourceTree = "<group>"; };
+		A2BBDDDD24A06FFB00A68F0A /* AssignBackupContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignBackupContactsView.swift; sourceTree = "<group>"; };
+		A2BBDDDF24A0751A00A68F0A /* BackupContactRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupContactRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,8 @@
 				A2BBDDD624A04F7700A68F0A /* EmbeddedContactPickerViewController.swift */,
 				A2BBDDD824A04FB000A68F0A /* EmbeddedContactPicker.swift */,
 				A2BBDDDB24A055B400A68F0A /* AssignMainContactView.swift */,
+				A2BBDDDD24A06FFB00A68F0A /* AssignBackupContactsView.swift */,
+				A2BBDDDF24A0751A00A68F0A /* BackupContactRow.swift */,
 			);
 			path = ContactViews;
 			sourceTree = "<group>";
@@ -273,9 +279,11 @@
 				A2298C08249AF62300BDD2B7 /* SceneDelegate.swift in Sources */,
 				A2298C0A249AF62300BDD2B7 /* ContentView.swift in Sources */,
 				A2684989249C61AD00F3820F /* GameCell.swift in Sources */,
+				A2BBDDE024A0751A00A68F0A /* BackupContactRow.swift in Sources */,
 				A2BBDDD924A04FB000A68F0A /* EmbeddedContactPicker.swift in Sources */,
 				A268498C249C649E00F3820F /* Home.swift in Sources */,
 				A2684992249C6B9100F3820F /* Library.swift in Sources */,
+				A2BBDDDE24A06FFB00A68F0A /* AssignBackupContactsView.swift in Sources */,
 				A2BBDDD724A04F7700A68F0A /* EmbeddedContactPickerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
