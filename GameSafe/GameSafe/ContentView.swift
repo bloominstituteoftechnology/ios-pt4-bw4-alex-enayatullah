@@ -11,6 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var selected = 0
+    @State var contacts: [Contact] = []
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -21,7 +22,7 @@ struct ContentView: View {
                 } else if self.selected == 1 {
                     Home()
                 } else {
-                    Settings()
+                    Settings(contacts: self.$contacts)
                         .padding(.top, 50)
                 }
             }
