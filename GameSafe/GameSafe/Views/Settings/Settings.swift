@@ -9,11 +9,15 @@
 import SwiftUI
 
 struct Settings: View {
+    @Binding var contacts: [Contact]
+    
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(spacing: 1) {
-                    SettingsOptionRow(setting: "Main Contact")
+                    NavigationLink(destination: AssignMainContactView(contacts: self.$contacts)) {
+                        SettingsOptionRow(setting: "Main Contact")
+                    }
                     SettingsOptionRow(setting: "Backup Contacts")
                 }
                 .padding(.top, 1)
@@ -55,6 +59,6 @@ struct Settings: View {
 
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
-        Settings()
+        Settings(contacts: .constant([]))
     }
 }

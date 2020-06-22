@@ -56,5 +56,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string>$(PRODUCT_NAME) would like access to contacts so you can share messages with friends about games you&apos;re playing!</string>
 </dict>
 </plist>
