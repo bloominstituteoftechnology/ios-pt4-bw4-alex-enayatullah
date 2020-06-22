@@ -19,6 +19,7 @@ class EmbeddedContactPickerViewController: UIViewController, CNContactPickerDele
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setUpSubViews()
         self.open(animated: animated)
     }
 
@@ -38,5 +39,15 @@ class EmbeddedContactPickerViewController: UIViewController, CNContactPickerDele
         self.dismiss(animated: false) {
             self.delegate?.embeddedContactPickerViewController(self, didSelect: contact)
         }
+    }
+    
+    func setUpSubViews() {
+        let barButton = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeController))
+        
+        self.navigationItem.rightBarButtonItem = barButton
+    }
+    
+    @objc func closeController() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

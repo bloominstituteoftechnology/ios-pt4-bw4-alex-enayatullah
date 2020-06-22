@@ -19,7 +19,10 @@ struct Settings: View {
                         NavigationLink(destination: AssignMainContactView(contacts: self.$contacts)) {
                             SettingsOptionRow(setting: "Main Contact")
                         }
-                        SettingsOptionRow(setting: "Backup Contacts")
+                        
+                        NavigationLink(destination: AssignBackupContactsView(contacts: self.$contacts)) {
+                            SettingsOptionRow(setting: "Backup Contacts")
+                        }
                     }
                     .padding(.top, 1)
                     .padding(.bottom, 30)

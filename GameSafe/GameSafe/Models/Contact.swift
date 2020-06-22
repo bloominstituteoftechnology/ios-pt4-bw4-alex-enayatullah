@@ -9,7 +9,7 @@
 import Foundation
 import Contacts
 
-struct Contact {
+struct Contact: Hashable {
     var name: String
     var phoneNumber: String
     var isMainContact: Bool
