@@ -38,10 +38,8 @@ struct EmbeddedContactPicker: UIViewControllerRepresentable {
         }
         
         func embeddedContactPickerViewController(_ viewController: EmbeddedContactPickerViewController, didSelect contact: CNContact) {
-            if self.parent.isMainContact {
-                self.parent.contacts.append(Contact(name: contact.givenName, phoneNumber: contact.phoneNumbers.first?.value.stringValue ?? "", isMainContact: self.parent.isMainContact))
-                self.parent.isPresented = false
-            }
+            self.parent.contacts.append(Contact(name: contact.givenName, phoneNumber: contact.phoneNumbers.first?.value.stringValue ?? "", isMainContact: self.parent.isMainContact))
+            self.parent.isPresented = false
         }
 
         func embeddedContactPickerViewControllerDidCancel(_ viewController: EmbeddedContactPickerViewController) {
