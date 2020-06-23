@@ -3,12 +3,13 @@
     <entity name="GameSafe" representedClassName="GameSafe" syncable="YES" codeGenerationType="class">
         <attribute name="firstName" optional="YES" attributeType="String"/>
         <attribute name="identifier" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isMainContact" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
         <attribute name="level" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="username" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="GameSafe" positionX="-54" positionY="-9" width="128" height="133"/>
+        <element name="GameSafe" positionX="-54" positionY="-9" width="128" height="148"/>
     </elements>
 </model>
