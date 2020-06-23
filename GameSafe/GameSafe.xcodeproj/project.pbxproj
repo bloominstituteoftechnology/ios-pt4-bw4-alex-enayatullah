@@ -34,6 +34,13 @@
 		E6E32745249FFA3B00257587 /* GameSafeReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E32744249FFA3B00257587 /* GameSafeReference.swift */; };
 		E6E32748249FFBB000257587 /* GameSafeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E32747249FFBB000257587 /* GameSafeController.swift */; };
 		E6E3274E249FFE1600257587 /* GameSafe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6E3274C249FFE1600257587 /* GameSafe.xcdatamodeld */; };
+		E609C5A824A198A7003F37D5 /* URLSession+NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609C5A724A198A7003F37D5 /* URLSession+NetworkDataLoader.swift */; };
+		E609C5AA24A198FE003F37D5 /* NetworkDataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609C5A924A198FE003F37D5 /* NetworkDataLoader.swift */; };
+		E609C5AD24A1993F003F37D5 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E609C5AC24A1993F003F37D5 /* CoreDataStack.swift */; };
+		E6E32742249FF76800257587 /* LSIGameSafe.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E32741249FF76800257587 /* LSIGameSafe.m */; };
+		E6E32745249FFA3B00257587 /* GameSafeReference.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E32744249FFA3B00257587 /* GameSafeReference.swift */; };
+		E6E32748249FFBB000257587 /* GameSafeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6E32747249FFBB000257587 /* GameSafeController.swift */; };
+		E6E3274E249FFE1600257587 /* GameSafe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6E3274C249FFE1600257587 /* GameSafe.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +75,15 @@
 		A2BBDDDB24A055B400A68F0A /* AssignMainContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignMainContactView.swift; sourceTree = "<group>"; };
 		A2BBDDDD24A06FFB00A68F0A /* AssignBackupContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignBackupContactsView.swift; sourceTree = "<group>"; };
 		A2BBDDDF24A0751A00A68F0A /* BackupContactRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackupContactRow.swift; sourceTree = "<group>"; };
+		E609C5A724A198A7003F37D5 /* URLSession+NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+NetworkDataLoader.swift"; sourceTree = "<group>"; };
+		E609C5A924A198FE003F37D5 /* NetworkDataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataLoader.swift; sourceTree = "<group>"; };
+		E609C5AC24A1993F003F37D5 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		E6E3273F249FF76800257587 /* GameSafe-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameSafe-Bridging-Header.h"; sourceTree = "<group>"; };
+		E6E32740249FF76800257587 /* LSIGameSafe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LSIGameSafe.h; sourceTree = "<group>"; };
+		E6E32741249FF76800257587 /* LSIGameSafe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LSIGameSafe.m; sourceTree = "<group>"; };
+		E6E32744249FFA3B00257587 /* GameSafeReference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSafeReference.swift; sourceTree = "<group>"; };
+		E6E32747249FFBB000257587 /* GameSafeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSafeController.swift; sourceTree = "<group>"; };
+		E6E3274D249FFE1600257587 /* GameSafe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GameSafe.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +119,8 @@
 				E6E32743249FF9A000257587 /* Models */,
 				E6E32746249FFB8300257587 /* Model Controller */,
 				A2BBDDD3249FE02600A68F0A /* Models */,
+				E6E32743249FF9A000257587 /* Models */,
+				E6E32746249FFB8300257587 /* Model Controller */,
 				A2684985249C612D00F3820F /* Views */,
 				A2298C05249AF62300BDD2B7 /* AppDelegate.swift */,
 				A2298C07249AF62300BDD2B7 /* SceneDelegate.swift */,
@@ -238,6 +256,29 @@
 			path = "Model Controller";
 			sourceTree = "<group>";
 		};
+		E6E32743249FF9A000257587 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E6E3274C249FFE1600257587 /* GameSafe.xcdatamodeld */,
+				E6E32740249FF76800257587 /* LSIGameSafe.h */,
+				E6E32741249FF76800257587 /* LSIGameSafe.m */,
+				E6E3273F249FF76800257587 /* GameSafe-Bridging-Header.h */,
+				E6E32744249FFA3B00257587 /* GameSafeReference.swift */,
+				E609C5A724A198A7003F37D5 /* URLSession+NetworkDataLoader.swift */,
+				E609C5A924A198FE003F37D5 /* NetworkDataLoader.swift */,
+				E609C5AC24A1993F003F37D5 /* CoreDataStack.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		E6E32746249FFB8300257587 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6E32747249FFBB000257587 /* GameSafeController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -329,6 +370,8 @@
 				A2684989249C61AD00F3820F /* GameCell.swift in Sources */,
 				A2BBDDE024A0751A00A68F0A /* BackupContactRow.swift in Sources */,
 				A2BBDDD924A04FB000A68F0A /* EmbeddedContactPicker.swift in Sources */,
+				E6E32748249FFBB000257587 /* GameSafeController.swift in Sources */,
+				E6E32745249FFA3B00257587 /* GameSafeReference.swift in Sources */,
 				E6E32748249FFBB000257587 /* GameSafeController.swift in Sources */,
 				E6E32745249FFA3B00257587 /* GameSafeReference.swift in Sources */,
 				A268498C249C649E00F3820F /* Home.swift in Sources */,
