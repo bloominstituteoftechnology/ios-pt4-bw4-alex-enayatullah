@@ -12,22 +12,23 @@ struct AssignBackupContactsView: View {
     @Binding var contacts: [Contact]
     @State private var contactListPresented = false
     @State private var isMainContact = false
+    @State var backupContact: Contact?
     
     var body: some View {
         VStack {
             HStack {
-                Text("Main Contact")
+                Text("Backup Contact")
                     .font(.largeTitle).bold()
                 Spacer()
             }
             .padding()
             
-            List {
-                ForEach(self.contacts, id: \.self) { (contact) in
-                    BackupContactRow(contact: contact)
-                }
-            }
-            .frame(height: 300)
+            Text(self.backupContact?.name ?? "No Main Contact Assigned") // Contact given name
+                .font(.headline).bold()
+                .padding()
+            
+            Text(self.backupContact?.phoneNumber ?? "No phone number found") // Contact phone number
+                .padding(.bottom, UIScreen.main.bounds.height / 4)
             
             Spacer()
             
@@ -44,8 +45,21 @@ struct AssignBackupContactsView: View {
             
             Spacer()
         }
-        .sheet(isPresented: self.$contactListPresented) {
+        .sheet(isPresented: self.$contactListPresented, onDismiss: {
+            self.backupContactAssigner()
+        }, content: {
             EmbeddedContactPicker(contacts: self.$contacts, isMainContact: self.$isMainContact, isPresented: self.$contactListPresented)
+        })
+            .onAppear {
+                self.backupContactAssigner()
+        }
+    }
+    
+    func backupContactAssigner() {
+        for contact in contacts {
+            if !contact.isMainContact {
+                self.backupContact = contact
+            }
         }
     }
 }
