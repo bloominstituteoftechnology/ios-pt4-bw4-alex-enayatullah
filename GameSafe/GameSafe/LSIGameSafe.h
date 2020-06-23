@@ -16,9 +16,15 @@ NS_SWIFT_NAME(GameSafe)
 @property (nonatomic, copy, nonnull)NSString *level;
 @property (nonatomic, copy, nonnull)NSString *firstName;
 @property (nonatomic, copy)NSString *lastName;
-@property (nonatomic, copy)NSString *mainContact; //main contact
-@property (nonatomic, copy)NSString *backupContact; // back contact
+@property (nonatomic, readonly, getter=isMainContact) BOOL mainContact;
 @property (nonatomic, copy)NSUUID *identifier;
+
+- (nonnull instancetype)initWithName:(nonnull NSString *)firstName
+                            lastName:(nonnull NSString *)lastName
+                               level:(nonnull NSString *)level
+                         mainContact:(BOOL)mainContact;
+
+- (nullable instancetype)initWithDictionary:(nonnull NSDictionary *)dictionary;
 
 @end
 

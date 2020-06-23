@@ -25,8 +25,14 @@ struct HTTPMethod {
 
 class GameSafeController {
     
-    private let baseURL = URL(string: "https")!
+    // MARK: - Base URL // URL: https://gamesafe-2810a.firebaseio.com/
     
+    private let baseURL = URL(string: "https://gamesafe-2810a.firebaseio.com/")!
+    
+    
+    
+    
+    // MARK: - SignUp network
     func signUp(username: String, password: String, completion: @escaping (Error?) -> Void = { _ in }) {
         let signUpURL = baseURL.appendingPathComponent("register")
         
