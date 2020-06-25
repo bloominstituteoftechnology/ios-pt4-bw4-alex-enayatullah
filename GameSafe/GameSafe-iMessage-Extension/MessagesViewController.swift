@@ -8,7 +8,6 @@
 
 import UIKit
 import Messages
-import GameSafe
 
 class MessagesViewController: MSMessagesAppViewController {
     
