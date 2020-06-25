@@ -18,19 +18,20 @@ struct MessagesComposeView: UIViewControllerRepresentable {
     func makeUIViewController(context: UIViewControllerRepresentableContext<MessagesComposeView>) -> MFMessageComposeViewController {
         let controller = MFMessageComposeViewController()
         controller.message = message
+        controller.delegate = context.coordinator
         
         return controller
     }
     
     func updateUIViewController(_ uiViewController: MFMessageComposeViewController, context: UIViewControllerRepresentableContext<MessagesComposeView>) {
-        
+        context.coordinator.messageComposeViewController(<#T##controller: MFMessageComposeViewController##MFMessageComposeViewController#>, didFinishWith: <#T##MessageComposeResult#>)
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
     
-    class Coordinator: NSObject, MFMessageComposeViewControllerDelegate {
+    class Coordinator: NSObject, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
         let parent: MessagesComposeView
         
         init(_ parent: MessagesComposeView) {
@@ -41,10 +42,13 @@ struct MessagesComposeView: UIViewControllerRepresentable {
             switch result {
             case .cancelled:
                 print("Message was canceled")
+                self.parent.quickStartTapped = false
             case .failed:
                 print("Message had failed")
+                self.parent.quickStartTapped = false
             case .sent:
                 print("Message was sent")
+                self.parent.quickStartTapped = false
             default:
                 break
             }
