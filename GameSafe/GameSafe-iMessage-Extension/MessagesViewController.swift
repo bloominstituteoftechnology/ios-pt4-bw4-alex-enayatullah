@@ -8,6 +8,7 @@
 
 import UIKit
 import Messages
+import GameSafe
 
 class MessagesViewController: MSMessagesAppViewController {
     
@@ -20,10 +21,9 @@ class MessagesViewController: MSMessagesAppViewController {
     // MARK: - Conversation Handling
     
     override func willBecomeActive(with conversation: MSConversation) {
-        // Called when the extension is about to move from the inactive to active state.
-        // This will happen when the extension is about to present UI.
+        super.willBecomeActive(with: conversation)
         
-        // Use this method to configure the extension and restore previously stored state.
+        presentViewController(for: conversation, with: presentationStyle)
     }
     
     override func didResignActive(with conversation: MSConversation) {
@@ -54,15 +54,71 @@ class MessagesViewController: MSMessagesAppViewController {
     }
     
     override func willTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called before the extension transitions to a new presentation style.
-    
-        // Use this method to prepare for the change in presentation style.
+        super.willTransition(to: presentationStyle)
+        
+        removeAllChildViewControllers()
     }
     
     override func didTransition(to presentationStyle: MSMessagesAppPresentationStyle) {
-        // Called after the extension transitions to a new presentation style.
-    
-        // Use this method to finalize any behaviors associated with the change in presentation style.
+        super.didTransition(to: presentationStyle)
+        
+        guard let conversation = activeConversation else { fatalError("Expected an active conversation.") }
+        presentViewController(for: conversation, with: presentationStyle)
     }
+    
+    private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
+        removeAllChildViewControllers()
+        
+        let controller = instantiateDecoyViewController()
+        
 
+        addChild(controller)
+        controller.view.frame = view.bounds
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(controller.view)
+        
+        NSLayoutConstraint.activate([
+            controller.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+            controller.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+            controller.view.topAnchor.constraint(equalTo: view.topAnchor),
+            controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            ])
+        
+        controller.didMove(toParent: self)
+    }
+    
+    private func instantiateDecoyViewController() -> UIViewController {
+        let controller = UIViewController()
+        let imageView = UIImageView(image: UIImage(named: "GameSafe-Logo")!) as UIView
+        
+        controller.view.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+        controller.view.topAnchor.constraint(equalTo: view.topAnchor),
+        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        return controller
+    }
+    
+    private func removeAllChildViewControllers() {
+        for child in children {
+            child.willMove(toParent: nil)
+            child.view.removeFromSuperview()
+            child.removeFromParent()
+        }
+    }
+    
+    fileprivate func composeMessage() -> MSMessage {
+        let layout = MSMessageTemplateLayout()
+        layout.image = UIImage(named: "GameSafe-Logo")!
+        layout.caption = "GameSafe Play Invite"
+        
+        let message = MSMessage(session: MSSession())
+        message.layout = layout
+        
+        return message
+    }
 }
