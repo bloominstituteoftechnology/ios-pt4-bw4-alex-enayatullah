@@ -7,15 +7,38 @@
 //
 
 import SwiftUI
+import Messages
+import MessageUI
 
-struct MessagesComposeView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+struct MessagesComposeView: UIViewControllerRepresentable {
+    @Binding var quickStartTapped: Bool
+    let message: MSMessage
+    let difficulty: String
+    
+    func makeUIViewController(context: UIViewControllerRepresentableContext<MessagesComposeView>) -> MFMessageComposeViewController {
+        let controller = MFMessageComposeViewController()
+        controller.message = message
+        
+        return controller
     }
-}
-
-struct MessagesComposeView_Previews: PreviewProvider {
-    static var previews: some View {
-        MessagesComposeView()
+    
+    func updateUIViewController(_ uiViewController: MFMessageComposeViewController, context: UIViewControllerRepresentableContext<MessagesComposeView>) {
+        
+    }
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self)
+    }
+    
+    class Coordinator: NSObject, MFMessageComposeViewControllerDelegate {
+        let parent: MessagesComposeView
+        
+        init(_ parent: MessagesComposeView) {
+            self.parent = parent
+        }
+        
+        func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+            
+        }
     }
 }
