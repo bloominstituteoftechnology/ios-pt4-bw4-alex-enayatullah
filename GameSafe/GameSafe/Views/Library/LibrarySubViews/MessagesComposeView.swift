@@ -38,7 +38,16 @@ struct MessagesComposeView: UIViewControllerRepresentable {
         }
         
         func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-            
+            switch result {
+            case .cancelled:
+                print("Message was canceled")
+            case .failed:
+                print("Message had failed")
+            case .sent:
+                print("Message was sent")
+            default:
+                break
+            }
         }
     }
 }
