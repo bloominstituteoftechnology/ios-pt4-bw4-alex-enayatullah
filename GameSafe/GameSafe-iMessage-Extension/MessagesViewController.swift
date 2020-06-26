@@ -62,7 +62,10 @@ class MessagesViewController: MSMessagesAppViewController {
         super.didTransition(to: presentationStyle)
         
         guard let conversation = activeConversation else { fatalError("Expected an active conversation.") }
-        presentViewController(for: conversation, with: presentationStyle)
+        
+        if conversation.localParticipantIdentifier == conversation.selectedMessage?.senderParticipantIdentifier {
+            presentViewController(for: conversation, with: presentationStyle)
+        }
     }
     
     private func presentViewController(for conversation: MSConversation, with presentationStyle: MSMessagesAppPresentationStyle) {
@@ -70,34 +73,62 @@ class MessagesViewController: MSMessagesAppViewController {
         
         let controller = instantiateDecoyViewController()
         
-
-        addChild(controller)
-        controller.view.frame = view.bounds
-        controller.view.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(controller.view)
         
-        NSLayoutConstraint.activate([
-            controller.view.leftAnchor.constraint(equalTo: view.leftAnchor),
-            controller.view.rightAnchor.constraint(equalTo: view.rightAnchor),
-            controller.view.topAnchor.constraint(equalTo: view.topAnchor),
-            controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-            ])
-        
-        controller.didMove(toParent: self)
+        if presentationStyle == .expanded {
+            addChild(controller)
+            controller.view.frame = view.bounds
+            controller.view.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(controller.view)
+            
+            NSLayoutConstraint.activate([
+                controller.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+                controller.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+                controller.view.topAnchor.constraint(equalTo: view.topAnchor),
+                controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                ])
+            
+            controller.didMove(toParent: self)
+        } else {
+            addChild(controller)
+            controller.view.frame = view.bounds
+            controller.view.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(controller.view)
+            
+            NSLayoutConstraint.activate([
+                controller.view.leftAnchor.constraint(equalTo: view.leftAnchor),
+                controller.view.rightAnchor.constraint(equalTo: view.rightAnchor),
+                controller.view.topAnchor.constraint(equalTo: view.topAnchor),
+                controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                ])
+            
+            controller.didMove(toParent: self)
+        }
     }
     
     private func instantiateDecoyViewController() -> UIViewController {
-        let controller = UIViewController()
-        let imageView = UIImageView(image: UIImage(named: "GameSafe-Logo")!) as UIView
+        let controller = DecoyViewController()
+//        addChild(controller)
+        
+        controller.view.frame = self.view.bounds
+        controller.view.translatesAutoresizingMaskIntoConstraints = false
+        let image = UIImage(named: "GamePlayWaiting")!
+        
+        let imageView = UIImageView(image: image) as UIView
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         controller.view.addSubview(imageView)
         
+        let aspectRatioConstraint = NSLayoutConstraint(item: imageView, attribute: .height, relatedBy: .equal, toItem: imageView, attribute: .width, multiplier: (1.0 / 1.0), constant: 0)
+        imageView.addConstraint(aspectRatioConstraint)
+        
         NSLayoutConstraint.activate([
-        controller.view.leftAnchor.constraint(equalTo: view.leftAnchor),
-        controller.view.rightAnchor.constraint(equalTo: view.rightAnchor),
-        controller.view.topAnchor.constraint(equalTo: view.topAnchor),
-        controller.view.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            imageView.leftAnchor.constraint(equalTo: controller.view.leftAnchor),
+            imageView.rightAnchor.constraint(equalTo: controller.view.rightAnchor),
+            imageView.centerXAnchor.constraint(equalTo: controller.view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: controller.view.centerYAnchor),
+            aspectRatioConstraint
         ])
+
         
         return controller
     }
