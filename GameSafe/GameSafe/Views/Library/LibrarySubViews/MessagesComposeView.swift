@@ -14,28 +14,30 @@ struct MessagesComposeView: UIViewControllerRepresentable {
     @Binding var quickStartTapped: Bool
     let message: MSMessage
     let difficulty: String
+    private let controller = MFMessageComposeViewController()
     
     func makeUIViewController(context: UIViewControllerRepresentableContext<MessagesComposeView>) -> MFMessageComposeViewController {
-        let controller = MFMessageComposeViewController()
+        
         controller.message = message
-        controller.delegate = context.coordinator
         
         return controller
     }
     
     func updateUIViewController(_ uiViewController: MFMessageComposeViewController, context: UIViewControllerRepresentableContext<MessagesComposeView>) {
-        context.coordinator.messageComposeViewController(<#T##controller: MFMessageComposeViewController##MFMessageComposeViewController#>, didFinishWith: <#T##MessageComposeResult#>)
+        
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self)
+        Coordinator(controller, self)
     }
     
     class Coordinator: NSObject, MFMessageComposeViewControllerDelegate, UINavigationControllerDelegate {
         let parent: MessagesComposeView
         
-        init(_ parent: MessagesComposeView) {
+        init(_ controller: MFMessageComposeViewController, _ parent: MessagesComposeView) {
             self.parent = parent
+            super.init()
+            controller.messageComposeDelegate = self
         }
         
         func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
@@ -52,6 +54,8 @@ struct MessagesComposeView: UIViewControllerRepresentable {
             default:
                 break
             }
+            
+            controller.dismiss(animated: true)
         }
     }
 }
