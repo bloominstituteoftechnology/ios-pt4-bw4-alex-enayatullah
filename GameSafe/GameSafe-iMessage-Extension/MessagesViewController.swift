@@ -3,7 +3,7 @@
 //  GameSafe-iMessage-Extension
 //
 //  Created by Alex Shillingford on 6/24/20.
-//  Copyright © 2020 Lambda School. All rights reserved.
+//  Copyright © 2020 BloomTech. All rights reserved.
 //
 
 import UIKit
